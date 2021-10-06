@@ -2,7 +2,7 @@
 #'
 #' @description Provides an quicker alias to clear the Environment
 #'
-#' @example
+#' @examples
 #' clr()
 #' @export
 

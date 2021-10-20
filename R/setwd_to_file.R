@@ -14,7 +14,7 @@ setwd_to_file <- function() {
                              'windows' = dirname(rstudioapi::getActiveDocumentContext()$path))  # Rstudio
   } else {
     cArgs <- commandArgs(trailingOnly = FALSE)
-    file.directory <- normalizePath(sub("--file=", "", cArgs[grep("--file=", cArgs)]))                                               # Rscript
+    file.directory <- dirname(normalizePath(sub("--file=", "", cArgs[grep("--file=", cArgs)]))) # Rscript
   }
   setwd(file.directory)
 }

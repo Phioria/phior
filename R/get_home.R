@@ -12,7 +12,7 @@ get_home <- function() {
   # Store OS
   os <- .Platform$OS.type
   home <- switch(os,
-                 'unix'    = shell('echo ~', intern = TRUE),
+                 'unix'    = system('echo ~', intern = TRUE),
                  'windows' = gsub('\\\\', '/', shell('echo %userprofile%', intern = TRUE)))
 
   # check if exists then, return home, else try a more complicated search?
@@ -21,4 +21,3 @@ get_home <- function() {
   #}
   return(home)
 }
-

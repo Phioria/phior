@@ -10,14 +10,24 @@
 
 get_home <- function() {
   # Store OS
+  # Need to test this on multiple OS and platforms (Rstudio, Rscript, Interactive R)
+  # Current list of tests
+  # Windows - Rstudio - PASSED
+  # Windows - Interactive - NOT TESTED
+  # Windows - WSL Linux Rscript - NOT TESTED
+  # Windows - WSL Linus Interactive - NOT TESTED
+  # LINUX - Rscript - NOT TESTED
+  # LINUX - Interactive - NOT TESTED
+  # UNIX - Rscript - NOT TESTED
+  # UNIX - Interactive - NOT TESTED
   os <- .Platform$OS.type
   home <- switch(os,
                  'unix'    = system('echo ~', intern = TRUE),
                  'windows' = gsub('\\\\', '/', shell('echo %userprofile%', intern = TRUE)))
 
-  # check if exists then, return home, else try a more complicated search?
-  #if (!dir.exists(home)) {
-  #  home <- more_complicated_get_home_function(home)
-  #}
+  if (!dir.exists(home)) {
+    print("Couldn't find your home directory, boss.")
+    return(NULL)
+  }
   return(home)
 }

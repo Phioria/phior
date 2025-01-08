@@ -10,24 +10,20 @@
 #' @export
 
 get_desktop <- function() {
-  # Guardrail the OS and make alternate suggestions
-  #if (tolower(Sys.info()['sysname']) != 'windows') {
-  #  print("You appear to be on a non-Windows machine")
-  #  print("Consider running phior::get_home() instead")
-  #  return()
-  #}
   home <- get_home()
-  # make sure home diretory exists?
+  if (!dir.exists(home)) {
+    message('Could not locate the home directory')
+    return(NULL)
+  }
 
   if (dir.exists(paste(home, "Desktop", sep = "/"))) {
     desktop <- paste(home, "Desktop", sep = "/")
+    return(desktop)
   } else if (dir.exists(paste(home, "desktop", sep = "/"))) {
     desktop <- paste(home, "desktop", sep = "/")
+    return(desktop)
   }
-  return(desktop)
-
-  #perhaps if desktop doesn't exist make 2 suggestions,
-  #1. might be on a unix machine without a desktop
-  #2. might have a custom desktop name
-  #perhaps provide an optional custom directory name for Desktop
+  # A standard desktop directory wasn't located
+  message('Could not locate a Desktop directory')
+  return(NULL)
 }

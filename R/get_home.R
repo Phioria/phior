@@ -9,17 +9,6 @@
 #' @export
 
 get_home <- function() {
-  # Store OS
-  # Need to test this on multiple OS and platforms (Rstudio, Rscript, Interactive R)
-  # Current list of tests
-  # Windows - Rstudio - PASSED
-  # Windows - Interactive - NOT TESTED
-  # Windows - WSL Linux Rscript - NOT TESTED
-  # Windows - WSL Linus Interactive - NOT TESTED
-  # LINUX - Rscript - NOT TESTED
-  # LINUX - Interactive - NOT TESTED
-  # UNIX - Rscript - NOT TESTED
-  # UNIX - Interactive - NOT TESTED
   os <- .Platform$OS.type
   home <- switch(os,
                  'unix'    = system('echo ~', intern = TRUE),

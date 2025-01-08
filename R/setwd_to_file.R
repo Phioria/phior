@@ -3,7 +3,7 @@
 #' @description Sets the current working directory to the file location
 #'              This only works for interactive and files being run directly,
 #' @examples
-#' setwd_to_file
+#' setwd_to_file()
 #' @export
 
 setwd_to_file <- function() {

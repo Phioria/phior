@@ -6,4 +6,9 @@
 #' cls()
 #' @export
 
-cls <- function() cat("\f")
+cls <- function() {
+  os <- .Platform$OS.type
+  switch(os,
+         'unix'    = system('clear'),
+         'windows' = cat("\f"))
+}

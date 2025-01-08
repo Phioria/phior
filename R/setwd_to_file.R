@@ -16,6 +16,12 @@ setwd_to_file <- function() {
     cArgs <- commandArgs(trailingOnly = FALSE)
     file.directory <- dirname(normalizePath(sub("--file=", "", cArgs[grep("--file=", cArgs)]))) # Rscript
   }
-  setwd(file.directory)
+  if (file.directory == "") {
+    warning("No active document directory was located.")
+    message("This function is intended to be document context dependent.")
+    message("If this was run in an unsaved/named file, please save the file and run again.")
+    message("If this was run in the console, well, don't do that.")
+  } else {
+    setwd(file.directory)
+  }
 }
-

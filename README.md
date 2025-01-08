@@ -15,6 +15,11 @@ to day development:
 - `cls()` clears the console if interactive
 - `get_desktop()` returns the system desktop directory if findable
 - `get_home()` returns the system home directory
+- `reload()` clears the global environment, then documents and reloads
+  the R package defined in setup_reload() and then sets the working
+  directory
+- `setup_reload()` writes a small settings file that stores the
+  directories used by reload()
 - `setwd_to_file()` sets the working directory to the directory the
   script is saved in
 

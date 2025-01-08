@@ -1,31 +1,41 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
 # phior
 
-------------------------------------------------------------------------
+---
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 ## Overview
 
-------------------------------------------------------------------------
+---
 
-phior is a small collection of functions that are useful to me in my day
-to day development:
+phior is a small collection of functions that are useful to me in my day to day development:
 
 - `clr()` is a short alias to clearing the global environment
 - `cls()` clears the console if interactive
 - `get_desktop()` returns the system desktop directory if findable
 - `get_home()` returns the system home directory
-- `setwd_to_file()` sets the working directory to the directory the
-  script is saved in
+- `setwd_to_file()` sets the working directory to the directory the script is saved in
+
 
 ## Installation
 
-You can install the development version of phior from
-[GitHub](https://github.com/) with:
+You can install the development version of phior from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")

@@ -3,14 +3,10 @@
 
 # phior
 
-------------------------------------------------------------------------
-
 <!-- badges: start -->
 <!-- badges: end -->
 
 ## Overview
-
-------------------------------------------------------------------------
 
 phior is a small collection of functions that are useful to me in my day
 to day development:

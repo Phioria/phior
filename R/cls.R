@@ -7,6 +7,7 @@
 #' @export
 
 cls <- function() {
+  if (!interactive()) return(NULL)
   os <- .Platform$OS.type
   switch(os,
          'unix'    = system('clear'),

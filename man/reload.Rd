@@ -4,7 +4,7 @@
 \alias{reload}
 \title{reload}
 \usage{
-reload(clear_env = TRUE, use_rcpp = TRUE)
+reload(clear_env = TRUE)
 }
 \arguments{
 \item{clear_env}{Set to FALSE if you don't want the environment cleared. Defaults to TRUE}

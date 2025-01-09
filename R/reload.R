@@ -12,15 +12,10 @@
 #' reload(clear_env = FALSE, use_rcpp = FALSE)
 #' @export
 
-reload <- function(clear_env = TRUE, use_rcpp = TRUE) {
+reload <- function(clear_env = TRUE) {
   if ('devtools' %in% installed.packages() == FALSE) {
     message("The package 'devtools' is missing.")
     message("Please install it before continuing.")
-  }
-  
-  if (use_rcpp && 'Rcpp' %in% installed.packages() == FALSE) {
-    message("The package 'Rcpp' is missing.")
-    message("Please install it or change the use_rcpp parameter to FALSE before coninuing.")
   }
   
   # Clear the environment
@@ -64,7 +59,7 @@ reload <- function(clear_env = TRUE, use_rcpp = TRUE) {
   # Now that all the guardrails have been passed
   setwd(settings$package_dir)
   
-  if (use_rcpp) {
+  if ('Rcpp' %in% installed.packages()) {
     Rcpp::compileAttributes(verbose = getOption("verbose"))
   }
   devtools::document()

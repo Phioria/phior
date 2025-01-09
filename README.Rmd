@@ -39,3 +39,20 @@ You can install the development version of phior from [GitHub](https://github.co
 # install.packages("devtools")
 devtools::install_github("Phioria/phior")
 ```
+
+## Usage
+
+### Package Development
+
+- `reload(clear_env = TRUE)` is simply a wrapper around `devtools::load_all()` and `Rcpp::compileAttributes()`.
+  When making changes to a package that uses both R and Rcpp, it became tedious to clear the environment,
+  set the working directory to the package directory, run `compileAttributes()`, `document()`, `load_all()`,
+  and then change back to the directory I was previously working in. This does that all in one step.
+  In order to work, `setup_reload()` needs to be run once in order to save your package and working directories.
+  By default, `reload()` clears the global environment, but this can be disabled with the parameter `clear_env = FALSE`.
+  `reload()` quietly assumes it should run `compileAttributes()` if Rcpp is installed. If the package isn't using
+  Rcpp, it just returns FALSE with no changes made.
+- `setup_reload(package_dir, working_dir)` creates a one line text file called .reloader in the user's home directory.
+  This stores the package and working directories currently being used for `reload()`. If you start working on a
+  different package, or you change the directory you're testing/working in, you will need to run `setup_reload()` again.
+
